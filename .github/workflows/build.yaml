@@ -45,7 +45,11 @@ jobs:
     runs-on: ubuntu-latest
     needs: docker_image
     steps:
-      - name: Check
-        run: echo "Hello"
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{secrets.EC2_SSH_KEY}}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
 
       
