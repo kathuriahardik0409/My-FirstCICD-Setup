@@ -29,6 +29,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
+      - name: Docker login
+        run: docker login -u "kathuriahardik" -p "Terr1f1c@1"
+        
       - name: Build docker image
         run: docker build -t docker-flask-app .
       
