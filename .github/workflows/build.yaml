@@ -37,4 +37,8 @@ jobs:
 
       - name: Build docker image
         run: docker build -t ${{ secrets.DOCKER_UNAME }}/flask-docker-app:latest .
+
+      - name: Push to docker hub
+        run: docker push ${{ secrets.DOCKER_UNAME }}/flask-docker-app:latest
+
       
