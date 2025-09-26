@@ -33,8 +33,8 @@ jobs:
         uses: docker/login-action@v3
         with:
           username: ${{secrets.DOCKER_UNAME}}
-          password: ${{DOCKER_PASS}}
+          password: ${{secrets.DOCKER_PASS}}
 
       - name: Build docker image
-        run: docker build -t docker-flask-app .
+        run: docker build -t ${{ secrets.DOCKER_UNAME }}/flask-docker-app:latest .
       
